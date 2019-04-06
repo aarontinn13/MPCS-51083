@@ -1,15 +1,15 @@
-Script started on 2019-04-03 14:23:57-0500
-]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'ResourceTyppe=instance,Tags=[{Key=Name,Value=atinn}]'
+Script started on 2019-04-05 17:56:10-0500
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs
 {
     "Groups": [],
     "Instances": [
         {
             "AmiLaunchIndex": 0,
             "ImageId": "ami-0ce8936181a9b7073",
-            "InstanceId": "i-0c9d6efdcded9fb92",
+            "InstanceId": "i-05d90df919c1a9f30",
             "InstanceType": "t2.nano",
             "KeyName": "atinn",
-            "LaunchTime": "2019-04-03T19:24:29.000Z",
+            "LaunchTime": "2019-04-05T22:56:44.000Z",
             "Monitoring": {
                 "State": "disabled"
             },
@@ -18,8 +18,8 @@ Script started on 2019-04-03 14:23:57-0500
                 "GroupName": "",
                 "Tenancy": "default"
             },
-            "PrivateDnsName": "ip-172-31-11-115.ec2.internal",
-            "PrivateIpAddress": "172.31.11.115",
+            "PrivateDnsName": "ip-172-31-9-28.ec2.internal",
+            "PrivateIpAddress": "172.31.9.28",
             "ProductCodes": [],
             "PublicDnsName": "",
             "State": {
@@ -37,8 +37,8 @@ Script started on 2019-04-03 14:23:57-0500
             "NetworkInterfaces": [
                 {
                     "Attachment": {
-                        "AttachTime": "2019-04-03T19:24:29.000Z",
-                        "AttachmentId": "eni-attach-0285a8fafbf7a4222",
+                        "AttachTime": "2019-04-05T22:56:44.000Z",
+                        "AttachmentId": "eni-attach-0a53b104a75c767a0",
                         "DeleteOnTermination": true,
                         "DeviceIndex": 0,
                         "Status": "attaching"
@@ -51,16 +51,114 @@ Script started on 2019-04-03 14:23:57-0500
                         }
                     ],
                     "Ipv6Addresses": [],
-                    "MacAddress": "0a:8e:69:ce:59:60",
-                    "NetworkInterfaceId": "eni-0e2af948a4662627b",
+                    "MacAddress": "0a:ff:8c:72:a2:b4",
+                    "NetworkInterfaceId": "eni-09d310372e2b79050",
                     "OwnerId": "127134666975",
-                    "PrivateDnsName": "ip-172-31-11-115.ec2.internal",
-                    "PrivateIpAddress": "172.31.11.115",
+                    "PrivateDnsName": "ip-172-31-9-28.ec2.internal",
+                    "PrivateIpAddress": "172.31.9.28",
                     "PrivateIpAddresses": [
                         {
                             "Primary": true,
-                            "PrivateDnsName": "ip-172-31-11-115.ec2.internal",
-                            "PrivateIpAddress": "172.31.11.115"
+                            "PrivateDnsName": "ip-172-31-9-28.ec2.internal",
+                            "PrivateIpAddress": "172.31.9.28"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-7923670e",
+                    "VpcId": "vpc-f91c369c"
+                }
+            ],
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupName": "mpcs",
+                    "GroupId": "sg-0db6d175"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 1
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            }
+        }
+    ],
+    "OwnerId": "127134666975",
+    "ReservationId": "r-080ed70e2f3759160"
+}
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-1234567890abcdef0 --tags Key=test_tag,Value=current[K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-1234567890abcdef0 --taags Key=test_tag,Value=current[K[A]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-1234567890abcdef0 --tagss Key=test_tag,Value=current[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resouce[K[Krces i-05d90df919c1a9f30 --tag s Key=Name,Value=atinn
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'ResourceTyppe=instance,Tags=[{Key=Name,Value=atinn}]'
+{
+    "Groups": [],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-0ce8936181a9b7073",
+            "InstanceId": "i-0aab6964a2a9d02d8",
+            "InstanceType": "t2.nano",
+            "KeyName": "atinn",
+            "LaunchTime": "2019-04-05T22:59:56.000Z",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "us-east-1d",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "PrivateDnsName": "ip-172-31-11-190.ec2.internal",
+            "PrivateIpAddress": "172.31.11.190",
+            "ProductCodes": [],
+            "PublicDnsName": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "StateTransitionReason": "",
+            "SubnetId": "subnet-7923670e",
+            "VpcId": "vpc-f91c369c",
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "",
+            "EbsOptimized": false,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2019-04-05T22:59:56.000Z",
+                        "AttachmentId": "eni-attach-0dc152fcae9e67a3a",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching"
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupName": "mpcs",
+                            "GroupId": "sg-0db6d175"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "0a:6f:09:b7:b6:2a",
+                    "NetworkInterfaceId": "eni-0584a1d2182dfef9c",
+                    "OwnerId": "127134666975",
+                    "PrivateDnsName": "ip-172-31-11-190.ec2.internal",
+                    "PrivateIpAddress": "172.31.11.190",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateDnsName": "ip-172-31-11-190.ec2.internal",
+                            "PrivateIpAddress": "172.31.11.190"
                         }
                     ],
                     "SourceDestCheck": true,
@@ -99,39 +197,39 @@ Script started on 2019-04-03 14:23:57-0500
         }
     ],
     "OwnerId": "127134666975",
-    "ReservationId": "r-0a2b91adc93fc874e"
+    "ReservationId": "r-0c73ec4690643a4cb"
 }
-]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ ssh -i ~/.ssh/atinn.pem ubuntu@ec2-54-92-216-69.compute-1.amazonaws.com
-The authenticity of host 'ec2-54-92-216-69.compute-1.amazonaws.com (54.92.216.69)' can't be established.
-ECDSA key fingerprint is SHA256:CdGq4hitlFbIuR5t5cHVaJ4dNutQCAMlO3I2zn7se5I.
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ ssh -i ~/.ssh/atinn.pem ubuntu@ec2-54-92-216-69.compute-1.amazonaws.com[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kec2-52-71-254-61.compute-1.amazonaws.com
+The authenticity of host 'ec2-52-71-254-61.compute-1.amazonaws.com (52.71.254.61)' can't be established.
+ECDSA key fingerprint is SHA256:4Ogqaq+Y1mVQ2btkuVW/2C4NVIaS+x27nVcNlxdxODA.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'ec2-54-92-216-69.compute-1.amazonaws.com,54.92.216.69' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'ec2-52-71-254-61.compute-1.amazonaws.com,52.71.254.61' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1034-aws x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Wed Apr  3 14:25:43 CDT 2019
+  System information as of Fri Apr  5 18:00:55 CDT 2019
 
-  System load:  0.97              Processes:           94
-  Usage of /:   24.5% of 7.69GB   Users logged in:     0
-  Memory usage: 45%               IP address for eth0: 172.31.11.115
+  System load:  0.87              Processes:           92
+  Usage of /:   23.6% of 7.69GB   Users logged in:     0
+  Memory usage: 39%               IP address for eth0: 172.31.11.190
   Swap usage:   0%
 
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
     http://www.ubuntu.com/business/services/cloud
 
-12 packages can be updated.
-12 updates are security updates.
+17 packages can be updated.
+14 updates are security updates.
 
 
 Last login: Wed Mar 27 13:11:38 2019 from 98.253.27.46
-]0;ubuntu@ip-172-31-11-115: ~[01;32mubuntu@ip-172-31-11-115[00m:[01;34m~[00m$ exit
+]0;ubuntu@ip-172-31-11-190: ~[01;32mubuntu@ip-172-31-11-190[00m:[01;34m~[00m$ exit
 logout
-Connection to ec2-54-92-216-69.compute-1.amazonaws.com closed.
+Connection to ec2-52-71-254-61.compute-1.amazonaws.com closed.
 ]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ exit
 exit
 
-Script done on 2019-04-03 14:26:45-0500
+Script done on 2019-04-05 18:01:52-0500
