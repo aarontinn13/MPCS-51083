@@ -5,7 +5,6 @@ https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.h
 
 import boto3
 import botocore
-from tabulate import tabulate
 
 def instance_protect(name):
 
