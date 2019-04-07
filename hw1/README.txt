@@ -47,8 +47,11 @@ Comments:
 
     - Everything seems to be working okay.
 
-    - I have left one instance running on 'stopped' status for testing, Also I terminated an instance and ran along side the stopped
-    instance which you can see above (i-0aab6964a2a9d02d8)
+    - The relevant files in the repository are:
+
+        hw1.py
+        ssh_session.txt
+        README.txt
 
     - This script also assumes I am logged into the aws and I do not need to provide any further credentials
 

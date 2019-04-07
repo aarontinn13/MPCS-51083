@@ -1,0 +1,235 @@
+Script started on 2019-04-07 16:45:09-0500
+infinity@aaron-tinn:~/Desktop/mpcs51083/hw1$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs
+{
+    "Groups": [],
+    "Instances": [
+	{
+	    "AmiLaunchIndex": 0,
+	    "ImageId": "ami-0ce8936181a9b7073",
+	    "InstanceId": "i-0d760b042907ebfbc",
+	    "InstanceType": "t2.nano",
+	    "KeyName": "atinn",
+	    "LaunchTime": "2019-04-07T21:45:20.000Z",
+	    "Monitoring": {
+		"State": "disabled"
+	    },
+	    "Placement": {
+		"AvailabilityZone": "us-east-1d",
+		"GroupName": "",
+		"Tenancy": "default"
+	    },
+	    "PrivateDnsName": "ip-172-31-8-169.ec2.internal",
+	    "PrivateIpAddress": "172.31.8.169",
+	    "ProductCodes": [],
+	    "PublicDnsName": "",
+	    "State": {
+		"Code": 0,
+		"Name": "pending"
+	    },
+	    "StateTransitionReason": "",
+	    "SubnetId": "subnet-7923670e",
+	    "VpcId": "vpc-f91c369c",
+	    "Architecture": "x86_64",
+	    "BlockDeviceMappings": [],
+	    "ClientToken": "",
+	    "EbsOptimized": false,
+	    "Hypervisor": "xen",
+	    "NetworkInterfaces": [
+		{
+		    "Attachment": {
+			"AttachTime": "2019-04-07T21:45:20.000Z",
+			"AttachmentId": "eni-attach-00099cb7bcb002864",
+			"DeleteOnTermination": true,
+			"DeviceIndex": 0,
+			"Status": "attaching"
+		    },
+		    "Description": "",
+		    "Groups": [
+			{
+			    "GroupName": "mpcs",
+			    "GroupId": "sg-0db6d175"
+			}
+		    ],
+		    "Ipv6Addresses": [],
+		    "MacAddress": "0a:70:50:60:22:fa",
+		    "NetworkInterfaceId": "eni-0420056ec25f1820b",
+		    "OwnerId": "127134666975",
+		    "PrivateDnsName": "ip-172-31-8-169.ec2.internal",
+		    "PrivateIpAddress": "172.31.8.169",
+		    "PrivateIpAddresses": [
+			{
+			    "Primary": true,
+			    "PrivateDnsName": "ip-172-31-8-169.ec2.internal",
+			    "PrivateIpAddress": "172.31.8.169"
+			}
+		    ],
+		    "SourceDestCheck": true,
+		    "Status": "in-use",
+		    "SubnetId": "subnet-7923670e",
+		    "VpcId": "vpc-f91c369c"
+		}
+	    ],
+	    "RootDeviceName": "/dev/sda1",
+	    "RootDeviceType": "ebs",
+	    "SecurityGroups": [
+		{
+		    "GroupName": "mpcs",
+		    "GroupId": "sg-0db6d175"
+		}
+	    ],
+	    "SourceDestCheck": true,
+	    "StateReason": {
+		"Code": "pending",
+		"Message": "pending"
+	    },
+	    "VirtualizationType": "hvm",
+	    "CpuOptions": {
+		"CoreCount": 1,
+		"ThreadsPerCore": 1
+	    },
+	    "CapacityReservationSpecification": {
+		"CapacityReservationPreference": "open"
+	    }
+	}
+    ],
+    "OwnerId": "127134666975",
+    "ReservationId": "r-0fb46bcc2eaf12cc1"
+}
+infinity@aaron-tinn:~/Desktop/mpcs51083/hw1$ aws ec2 create-tags --resources i-05d90df919c1a9f30 --tags Key=Name,Value=atinn
+infinity@aaron-tinn:~/Desktop/mpcs51083/hw1$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=atinn}]'
+{
+    "Groups": [],
+    "Instances": [
+	{
+	    "AmiLaunchIndex": 0,
+	    "ImageId": "ami-0ce8936181a9b7073",
+	    "InstanceId": "i-0eead8cadb7f6c98c",
+	    "InstanceType": "t2.nano",
+	    "KeyName": "atinn",
+	    "LaunchTime": "2019-04-07T21:46:35.000Z",
+	    "Monitoring": {
+		"State": "disabled"
+	    },
+	    "Placement": {
+		"AvailabilityZone": "us-east-1d",
+		"GroupName": "",
+		"Tenancy": "default"
+	    },
+	    "PrivateDnsName": "ip-172-31-6-28.ec2.internal",
+	    "PrivateIpAddress": "172.31.6.28",
+	    "ProductCodes": [],
+	    "PublicDnsName": "",
+	    "State": {
+		"Code": 0,
+		"Name": "pending"
+	    },
+	    "StateTransitionReason": "",
+	    "SubnetId": "subnet-7923670e",
+	    "VpcId": "vpc-f91c369c",
+	    "Architecture": "x86_64",
+	    "BlockDeviceMappings": [],
+	    "ClientToken": "",
+	    "EbsOptimized": false,
+	    "Hypervisor": "xen",
+	    "NetworkInterfaces": [
+		{
+		    "Attachment": {
+			"AttachTime": "2019-04-07T21:46:35.000Z",
+			"AttachmentId": "eni-attach-0b8d6d4a725eaa5ea",
+			"DeleteOnTermination": true,
+			"DeviceIndex": 0,
+			"Status": "attaching"
+		    },
+		    "Description": "",
+		    "Groups": [
+			{
+			    "GroupName": "mpcs",
+			    "GroupId": "sg-0db6d175"
+			}
+		    ],
+		    "Ipv6Addresses": [],
+		    "MacAddress": "0a:b6:54:5d:a5:1e",
+		    "NetworkInterfaceId": "eni-090e8d8ed76b1c783",
+		    "OwnerId": "127134666975",
+		    "PrivateDnsName": "ip-172-31-6-28.ec2.internal",
+		    "PrivateIpAddress": "172.31.6.28",
+		    "PrivateIpAddresses": [
+			{
+			    "Primary": true,
+			    "PrivateDnsName": "ip-172-31-6-28.ec2.internal",
+			    "PrivateIpAddress": "172.31.6.28"
+			}
+		    ],
+		    "SourceDestCheck": true,
+		    "Status": "in-use",
+		    "SubnetId": "subnet-7923670e",
+		    "VpcId": "vpc-f91c369c"
+		}
+	    ],
+	    "RootDeviceName": "/dev/sda1",
+	    "RootDeviceType": "ebs",
+	    "SecurityGroups": [
+		{
+		    "GroupName": "mpcs",
+		    "GroupId": "sg-0db6d175"
+		}
+	    ],
+	    "SourceDestCheck": true,
+	    "StateReason": {
+		"Code": "pending",
+		"Message": "pending"
+	    },
+	    "Tags": [
+		{
+		    "Key": "Name",
+		    "Value": "atinn"
+		}
+	    ],
+	    "VirtualizationType": "hvm",
+	    "CpuOptions": {
+		"CoreCount": 1,
+		"ThreadsPerCore": 1
+	    },
+	    "CapacityReservationSpecification": {
+		"CapacityReservationPreference": "open"
+	    }
+	}
+    ],
+    "OwnerId": "127134666975",
+    "ReservationId": "r-0c9524c486274a43f"
+}
+infinity@aaron-tinn:~/Desktop/mpcs51083/hw1$ ssh -i ~/.ssh/atinn.pem ubuntu@ec2-204-236-198-84.compute-1.amazonaws.com
+The authenticity of host 'ec2-204-236-198-84.compute-1.amazonaws.com (204.236.198.84)' can't be established.
+ECDSA key fingerprint is SHA256:bhGuC9pY5ZMFksw5yiVpGdUP/3svL1mxJv97wwbZXq4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-204-236-198-84.compute-1.amazonaws.com,204.236.198.84' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1034-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:	   https://landscape.canonical.com
+ * Support:	   https://ubuntu.com/advantage
+
+  System information as of Sun Apr  7 16:49:05 CDT 2019
+
+  System load:	0.57		  Processes:	       88
+  Usage of /:	26.1% of 7.69GB   Users logged in:     0
+  Memory usage: 31%		  IP address for eth0: 172.31.6.28
+  Swap usage:	0%
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+8 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Wed Mar 27 13:11:38 2019 from 98.253.27.46
+ubuntu@ip-172-31-6-28:~$ exit
+logout
+Connection to ec2-204-236-198-84.compute-1.amazonaws.com closed.
+infinity@aaron-tinn:~/Desktop/mpcs51083/hw1$ exit
+exit
+
+Script done on 2019-04-07 16:49:16-0500
