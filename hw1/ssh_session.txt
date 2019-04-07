@@ -96,7 +96,11 @@ Script started on 2019-04-07 16:45:09-0500
     "ReservationId": "r-0fb46bcc2eaf12cc1"
 }
 ]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-05d90df919c1a9f30 --tags Key=Name,Value=atinn[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@0[1@d[1@7[1@6[1@0[1@b[1@0[1@4[1@2[1@9[1@0[1@7[1@e[1@b[1@f[1@b[1@c
-]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'Resourcepe==instance,Tags=[{Key=Name,Value=atinn}]'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CTpe=instance,Tags=[{Key=Name,Value=atinn}]'[A]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cype=instance,Tags=[{Key=Name,Value=atinn}]'
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'Resourcepe=
+=instance,Tags=[{Key=Name,Value=atinn}]'
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CTpe=instance,Tags=[{Key=Name,Value=atinn}]'[A
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cype=instance,Tags=[{Key=Name,Value=atinn}]'
+
 {
     "Groups": [],
     "Instances": [
@@ -202,7 +206,8 @@ Script started on 2019-04-07 16:45:09-0500
 The authenticity of host 'ec2-204-236-198-84.compute-1.amazonaws.com (204.236.198.84)' can't be established.
 ECDSA key fingerprint is SHA256:bhGuC9pY5ZMFksw5yiVpGdUP/3svL1mxJv97wwbZXq4.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'ec2-204-236-198-84.compute-1.amazonaws.com,204.236.198.84' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'ec2-204-236-198-84.compute-1.amazonaws.com,204.236.198.84' (ECDSA) to the list of known hosts.
+
 Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1034-aws x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -225,10 +230,12 @@ Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1034-aws x86_64)
 
 
 *** System restart required ***
-Last login: Wed Mar 27 13:11:38 2019 from 98.253.27.46
+Last login: Wed Mar 27 13:11:38 2019 from 98.253.27.46
+
 ]0;ubuntu@ip-172-31-6-28: ~[01;32mubuntu@ip-172-31-6-28[00m:[01;34m~[00m$ exit
 logout
-Connection to ec2-204-236-198-84.compute-1.amazonaws.com closed.
+Connection to ec2-204-236-198-84.compute-1.amazonaws.com closed.
+
 ]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ exit
 exit
 
