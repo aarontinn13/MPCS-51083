@@ -1,15 +1,15 @@
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Specs:
 
     Ubuntu 18.04
     Python 3.5
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Running the Python Script:
 
     python hw1.py
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Output (Should be similar):
 
     Instance ID: i-05d90df919c1a9f30
@@ -37,12 +37,12 @@ Output (Should be similar):
     445     ['98.253.27.0/24']
     443     ['0.0.0.0/0']
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Reading the ssh_session.txt:
 
     cat ssh_session.txt
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Comments:
 
     - Everything seems to be working okay.
@@ -60,7 +60,12 @@ Comments:
 
     - There should be 4 commands seen in the ssh_session.txt. Just in case I will paste them below:
 
-        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs
+        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn
+        --security-groups mpcs
+
         aws ec2 create-tags --resources i-05d90df919c1a9f30 --tags Key=Name,Value=atinn
-        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'Resourcepe=instance,Tags=[{Key=Name,Value=atinn}]'
+
+        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn
+        --security-groups mpcs --tag-specifications 'Resourcepe=instance,Tags=[{Key=Name,Value=atinn}]'
+
         ssh -i ~/.ssh/atinn.pem ubuntu@ec2-54-92-216-69.compute-1ec2-52-71-254-61.compute-1.amazonaws.com
