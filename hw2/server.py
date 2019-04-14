@@ -5,29 +5,32 @@ import os
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET'])
 # This method is called when a user visits "/" on your server
 def home():
-  # substitute your favorite geek message below
-  return "ZORK I: The Great Underground Empire."
+    # substitute your favorite geek message below
+    return "ZORK I: The Great Underground Empire."
+
 
 @app.route('/hello', methods=['GET'])
 # This method is called when a user visits "/hello" on your server
 def hello():
-  # another geek message here!
-  return "West of House<br ><br />&gt; _"
+    # another geek message here!
+    return "West of House<br ><br />&gt; _"
 
 
 def file_does_not_exist():
     return "This file does not exist"
 
+
 def UUID_does_not_exist():
     return "This UUID does not exist"
 
 
+@app.route('/annotations/', methods=['POST', 'GET'])
 @app.route('/annotations/<id>', methods=['POST', 'GET'])
 def annotations(id=None):
-
     # handle GET
     if request.method == 'GET':
 
@@ -44,23 +47,23 @@ def annotations(id=None):
                 log_file = [f for f in os.listdir('./jobs/{}'.format(id)) if f.endswith('.log')][0]
                 with open('./jobs/{}/{}'.format(id, log_file), 'r') as log:
                     return jsonify({
-                                    "code": 200,
-                                    "data": {
-                                    "job_id": "{}".format(id),
-                                    "job_status": "completed",
-                                    "log": log.read()
-                                        }
-                                    })
+                        "code": 200,
+                        "data": {
+                            "job_id": "{}".format(id),
+                            "job_status": "completed",
+                            "log": log.read()
+                        }
+                    })
 
             # If job exists, but job is incomplete
             else:
                 return jsonify({
-                                "code": 200,
-                                "data": {
-                                "job_id": "{}".format(id),
-                                "job_status": "running"
-                                    }
-                                })
+                    "code": 200,
+                    "data": {
+                        "job_id": "{}".format(id),
+                        "job_status": "running"
+                    }
+                })
 
         # Retrieve list of annotation jobs
         else:
@@ -69,32 +72,32 @@ def annotations(id=None):
 
             for job_id in os.listdir('./jobs'):
                 if any(fname.endswith('.annot.vcf') for fname in os.listdir('./jobs/{}'.format(job_id))):
-                    log_file = [f for f in os.listdir('./jobs/{}'.format(id)) if f.endswith('.log')][0]
-                    with open('./jobs/{}/{}'.format(id, log_file), 'r') as log:
-                        jobs.append(jsonify({
+                    log_file = [f for f in os.listdir('./jobs/{}'.format(job_id)) if f.endswith('.log')][0]
+                    with open('./jobs/{}/{}'.format(job_id, log_file), 'r') as log:
+                        jobs.append({
                             "job_id": job_id,
                             "job_details": {
                                 "job_status": "completed",
                                 "log": log.read()
                             }
-                        }))
+                        })
 
                 # If job exists, but job is incomplete
                 else:
-                    jobs.append(jsonify({
+                    jobs.append({
                         "job_id": job_id,
                         "job_details": {
                             "job_id": "{}".format(job_id),
                             "job_status": "running"
                         }
-                    }))
+                    })
 
             return jsonify({
                 "code": 200,
                 "data": {
                     "jobs": jobs
-                        }
-                    })
+                }
+            })
 
     # submit an annotation job
     elif request.method == 'POST':
@@ -122,11 +125,12 @@ def annotations(id=None):
         subprocess.Popen(['sh', '-c', 'cd ./anntools && python run.py ../jobs/{}/{}'.format(UUID, input_file)])
 
         return jsonify({"code": 201,
-                        "data":{
+                        "data": {
                             "job_id": UUID,
-                            "input_file":input_file,
+                            "input_file": input_file,
                         }
                         })
+
 
 # Run the app server
 app.run(host='0.0.0.0', debug=True)
