@@ -1,4 +1,4 @@
-Script started on 2019-04-05 17:56:10-0500
+Script started on 2019-04-07 16:45:09-0500
 ]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs
 {
     "Groups": [],
@@ -6,10 +6,10 @@ Script started on 2019-04-05 17:56:10-0500
         {
             "AmiLaunchIndex": 0,
             "ImageId": "ami-0ce8936181a9b7073",
-            "InstanceId": "i-05d90df919c1a9f30",
+            "InstanceId": "i-0d760b042907ebfbc",
             "InstanceType": "t2.nano",
             "KeyName": "atinn",
-            "LaunchTime": "2019-04-05T22:56:44.000Z",
+            "LaunchTime": "2019-04-07T21:45:20.000Z",
             "Monitoring": {
                 "State": "disabled"
             },
@@ -18,8 +18,8 @@ Script started on 2019-04-05 17:56:10-0500
                 "GroupName": "",
                 "Tenancy": "default"
             },
-            "PrivateDnsName": "ip-172-31-9-28.ec2.internal",
-            "PrivateIpAddress": "172.31.9.28",
+            "PrivateDnsName": "ip-172-31-8-169.ec2.internal",
+            "PrivateIpAddress": "172.31.8.169",
             "ProductCodes": [],
             "PublicDnsName": "",
             "State": {
@@ -37,8 +37,8 @@ Script started on 2019-04-05 17:56:10-0500
             "NetworkInterfaces": [
                 {
                     "Attachment": {
-                        "AttachTime": "2019-04-05T22:56:44.000Z",
-                        "AttachmentId": "eni-attach-0a53b104a75c767a0",
+                        "AttachTime": "2019-04-07T21:45:20.000Z",
+                        "AttachmentId": "eni-attach-00099cb7bcb002864",
                         "DeleteOnTermination": true,
                         "DeviceIndex": 0,
                         "Status": "attaching"
@@ -51,16 +51,16 @@ Script started on 2019-04-05 17:56:10-0500
                         }
                     ],
                     "Ipv6Addresses": [],
-                    "MacAddress": "0a:ff:8c:72:a2:b4",
-                    "NetworkInterfaceId": "eni-09d310372e2b79050",
+                    "MacAddress": "0a:70:50:60:22:fa",
+                    "NetworkInterfaceId": "eni-0420056ec25f1820b",
                     "OwnerId": "127134666975",
-                    "PrivateDnsName": "ip-172-31-9-28.ec2.internal",
-                    "PrivateIpAddress": "172.31.9.28",
+                    "PrivateDnsName": "ip-172-31-8-169.ec2.internal",
+                    "PrivateIpAddress": "172.31.8.169",
                     "PrivateIpAddresses": [
                         {
                             "Primary": true,
-                            "PrivateDnsName": "ip-172-31-9-28.ec2.internal",
-                            "PrivateIpAddress": "172.31.9.28"
+                            "PrivateDnsName": "ip-172-31-8-169.ec2.internal",
+                            "PrivateIpAddress": "172.31.8.169"
                         }
                     ],
                     "SourceDestCheck": true,
@@ -93,21 +93,24 @@ Script started on 2019-04-05 17:56:10-0500
         }
     ],
     "OwnerId": "127134666975",
-    "ReservationId": "r-080ed70e2f3759160"
+    "ReservationId": "r-0fb46bcc2eaf12cc1"
 }
-]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-1234567890abcdef0 --tags Key=test_tag,Value=current[K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-1234567890abcdef0 --taags Key=test_tag,Value=current[K[A]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-1234567890abcdef0 --tagss Key=test_tag,Value=current[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resouce[K[Krces i-05d90df919c1a9f30 --tag s Key=Name,Value=atinn
-]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [K]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'ResourceTyppe=instance,Tags=[{Key=Name,Value=atinn}]'
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 create-tags --resources i-05d90df919c1a9f30 --tags Key=Name,Value=atinn[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@0[1@d[1@7[1@6[1@0[1@b[1@0[1@4[1@2[1@9[1@0[1@7[1@e[1@b[1@f[1@b[1@c
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'Resourcepe=
+=instance,Tags=[{Key=Name,Value=atinn}]'
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CTpe=instance,Tags=[{Key=Name,Value=atinn}]'[A
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cype=instance,Tags=[{Key=Name,Value=atinn}]'
+
 {
     "Groups": [],
     "Instances": [
         {
             "AmiLaunchIndex": 0,
             "ImageId": "ami-0ce8936181a9b7073",
-            "InstanceId": "i-0aab6964a2a9d02d8",
+            "InstanceId": "i-0eead8cadb7f6c98c",
             "InstanceType": "t2.nano",
             "KeyName": "atinn",
-            "LaunchTime": "2019-04-05T22:59:56.000Z",
+            "LaunchTime": "2019-04-07T21:46:35.000Z",
             "Monitoring": {
                 "State": "disabled"
             },
@@ -116,8 +119,8 @@ Script started on 2019-04-05 17:56:10-0500
                 "GroupName": "",
                 "Tenancy": "default"
             },
-            "PrivateDnsName": "ip-172-31-11-190.ec2.internal",
-            "PrivateIpAddress": "172.31.11.190",
+            "PrivateDnsName": "ip-172-31-6-28.ec2.internal",
+            "PrivateIpAddress": "172.31.6.28",
             "ProductCodes": [],
             "PublicDnsName": "",
             "State": {
@@ -135,8 +138,8 @@ Script started on 2019-04-05 17:56:10-0500
             "NetworkInterfaces": [
                 {
                     "Attachment": {
-                        "AttachTime": "2019-04-05T22:59:56.000Z",
-                        "AttachmentId": "eni-attach-0dc152fcae9e67a3a",
+                        "AttachTime": "2019-04-07T21:46:35.000Z",
+                        "AttachmentId": "eni-attach-0b8d6d4a725eaa5ea",
                         "DeleteOnTermination": true,
                         "DeviceIndex": 0,
                         "Status": "attaching"
@@ -149,16 +152,16 @@ Script started on 2019-04-05 17:56:10-0500
                         }
                     ],
                     "Ipv6Addresses": [],
-                    "MacAddress": "0a:6f:09:b7:b6:2a",
-                    "NetworkInterfaceId": "eni-0584a1d2182dfef9c",
+                    "MacAddress": "0a:b6:54:5d:a5:1e",
+                    "NetworkInterfaceId": "eni-090e8d8ed76b1c783",
                     "OwnerId": "127134666975",
-                    "PrivateDnsName": "ip-172-31-11-190.ec2.internal",
-                    "PrivateIpAddress": "172.31.11.190",
+                    "PrivateDnsName": "ip-172-31-6-28.ec2.internal",
+                    "PrivateIpAddress": "172.31.6.28",
                     "PrivateIpAddresses": [
                         {
                             "Primary": true,
-                            "PrivateDnsName": "ip-172-31-11-190.ec2.internal",
-                            "PrivateIpAddress": "172.31.11.190"
+                            "PrivateDnsName": "ip-172-31-6-28.ec2.internal",
+                            "PrivateIpAddress": "172.31.6.28"
                         }
                     ],
                     "SourceDestCheck": true,
@@ -197,39 +200,43 @@ Script started on 2019-04-05 17:56:10-0500
         }
     ],
     "OwnerId": "127134666975",
-    "ReservationId": "r-0c73ec4690643a4cb"
+    "ReservationId": "r-0c9524c486274a43f"
 }
-]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ ssh -i ~/.ssh/atinn.pem ubuntu@ec2-54-92-216-69.compute-1.amazonaws.com[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kec2-52-71-254-61.compute-1.amazonaws.com
-The authenticity of host 'ec2-52-71-254-61.compute-1.amazonaws.com (52.71.254.61)' can't be established.
-ECDSA key fingerprint is SHA256:4Ogqaq+Y1mVQ2btkuVW/2C4NVIaS+x27nVcNlxdxODA.
+]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ ssh -i ~/.ssh/atinn.pem ubuntu@ec2-54-92-216-69.compute-1ec2-52-71-254-61.compute-1.amazonaws.com[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kec2-204-236-198-84.compute-1.amazonaws.com
+The authenticity of host 'ec2-204-236-198-84.compute-1.amazonaws.com (204.236.198.84)' can't be established.
+ECDSA key fingerprint is SHA256:bhGuC9pY5ZMFksw5yiVpGdUP/3svL1mxJv97wwbZXq4.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'ec2-52-71-254-61.compute-1.amazonaws.com,52.71.254.61' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'ec2-204-236-198-84.compute-1.amazonaws.com,204.236.198.84' (ECDSA) to the list of known hosts.
+
 Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1034-aws x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Fri Apr  5 18:00:55 CDT 2019
+  System information as of Sun Apr  7 16:49:05 CDT 2019
 
-  System load:  0.87              Processes:           92
-  Usage of /:   23.6% of 7.69GB   Users logged in:     0
-  Memory usage: 39%               IP address for eth0: 172.31.11.190
+  System load:  0.57              Processes:           88
+  Usage of /:   26.1% of 7.69GB   Users logged in:     0
+  Memory usage: 31%               IP address for eth0: 172.31.6.28
   Swap usage:   0%
 
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
     http://www.ubuntu.com/business/services/cloud
 
-17 packages can be updated.
-14 updates are security updates.
+8 packages can be updated.
+0 updates are security updates.
 
 
-Last login: Wed Mar 27 13:11:38 2019 from 98.253.27.46
-]0;ubuntu@ip-172-31-11-190: ~[01;32mubuntu@ip-172-31-11-190[00m:[01;34m~[00m$ exit
+*** System restart required ***
+Last login: Wed Mar 27 13:11:38 2019 from 98.253.27.46
+
+]0;ubuntu@ip-172-31-6-28: ~[01;32mubuntu@ip-172-31-6-28[00m:[01;34m~[00m$ exit
 logout
-Connection to ec2-52-71-254-61.compute-1.amazonaws.com closed.
+Connection to ec2-204-236-198-84.compute-1.amazonaws.com closed.
+
 ]0;infinity@aaron-tinn: ~/Desktop/mpcs51083/hw1[01;32minfinity@aaron-tinn[00m:[01;34m~/Desktop/mpcs51083/hw1[00m$ exit
 exit
 
-Script done on 2019-04-05 18:01:52-0500
+Script done on 2019-04-07 16:49:16-0500

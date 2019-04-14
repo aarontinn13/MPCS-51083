@@ -1,15 +1,15 @@
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Specs:
 
     Ubuntu 18.04
     Python 3.5
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Running the Python Script:
 
     python hw1.py
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Output (Should be similar):
 
     Instance ID: i-05d90df919c1a9f30
@@ -37,18 +37,22 @@ Output (Should be similar):
     445     ['98.253.27.0/24']
     443     ['0.0.0.0/0']
 
----------------------------------------------------------------------------------------------------------------------------------------------
-Reading the ssh_session.txt:
+--------------------------------------------------------------------------------------------------------------------------------
+Reading the ssh_session.txt (or view clean_session.txt directly):
 
     cat ssh_session.txt
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Comments:
 
     - Everything seems to be working okay.
 
-    - I have left one instance running on 'stopped' status for testing, Also I terminated an instance and ran along side the stopped
-    instance which you can see above (i-0aab6964a2a9d02d8)
+    - The relevant files in the repository are:
+
+        hw1.py
+        ssh_session.txt
+        clean_session.txt (optional)
+        README.txt
 
     - This script also assumes I am logged into the aws and I do not need to provide any further credentials
 
@@ -56,11 +60,17 @@ Comments:
 
         script ssh_session.txt
 
-     thus it is best to view the document via the terminal by using cat command.
+     thus it is best to view the document via the terminal by using cat command, or view the clean_session.txt directly
+     which has the symbols removed.
 
-    - There should be 4 commands seen in the ssh_session.txt. Just in case I will paste them below:
+    - There should be 4 commands seen in the ssh_session.txt / clean_session.txt. Just in case I will paste them below:
 
-        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs
-        aws ec2 create-tags --resources i-05d90df919c1a9f30 --tags Key=Name,Value=atinn
-        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn --security-groups mpcs --tag-specifications 'Resourcepe=instance,Tags=[{Key=Name,Value=atinn}]'
-        ssh -i ~/.ssh/atinn.pem ubuntu@ec2-54-92-216-69.compute-1ec2-52-71-254-61.compute-1.amazonaws.com
+        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn
+        --security-groups mpcs
+
+        aws ec2 create-tags --resources i-0d760b042907ebfbc --tags Key=Name,Value=atinn
+
+        aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn
+        --security-groups mpcs --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=atinn}]'
+
+        ssh -i ~/.ssh/atinn.pem ubuntu@ec2-204-236-198-84.compute-1.amazonaws.com
