@@ -51,7 +51,7 @@ Comments:
 
         hw1.py
         ssh_session.txt
-        clean_session.txt
+        clean_session.txt (optional)
         README.txt
 
     - This script also assumes I am logged into the aws and I do not need to provide any further credentials
@@ -63,7 +63,7 @@ Comments:
      thus it is best to view the document via the terminal by using cat command, or view the clean_session.txt directly
      which has the symbols removed.
 
-    - There should be 4 commands seen in the ssh_session.txt. Just in case I will paste them below:
+    - There should be 4 commands seen in the ssh_session.txt / clean_session.txt. Just in case I will paste them below:
 
         aws ec2 run-instances --image-id ami-0ce8936181a9b7073 --count 1 --instance-type t2.nano --key-name atinn
         --security-groups mpcs
