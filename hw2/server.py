@@ -28,7 +28,7 @@ def UUID_does_not_exist():
     return "This UUID does not exist"
 
 
-@app.route('/annotations/', methods=['POST', 'GET'])
+@app.route('/annotations', methods=['POST', 'GET'])
 @app.route('/annotations/<id>', methods=['POST', 'GET'])
 def annotations(id=None):
     # handle GET
