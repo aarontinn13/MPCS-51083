@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8ada55c4-e5ea-4ad5-90c0-066ea24aa06c" name="mpcs" url="http://ec2-34-207-114-140.compute-1.amazonaws.com">
+        <fileTransfer host="ec2-34-207-114-140.compute-1.amazonaws.com" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

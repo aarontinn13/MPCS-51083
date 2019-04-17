@@ -20,12 +20,48 @@ def hello():
     return "West of House<br ><br />&gt; _"
 
 
+@app.errorhandler(400)
+def bad_request(error):
+    return jsonify({
+        'code': 'HTTP_400_BAD_REQUEST',
+        'status': 'error',
+        'message': 'Key not found, please try again.'
+    })
+
+
+@app.errorhandler(404)
+def bad_request(error):
+    return jsonify({
+        'code': 'HTTP_404_NOT_FOUND',
+        'status': 'error',
+        'message': 'URL not found, please try again.'
+    })
+
+
+# any additional errors that were not caught
+@app.errorhandler(Exception)
+def all_exception_handler(error):
+    return jsonify({
+        'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
+        'status': 'error',
+        'message': 'An error has occured please try again.'
+    })
+
+
 def file_does_not_exist():
-    return "This file does not exist"
+    return jsonify({
+        'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
+        'status': 'error',
+        'message': 'This file does not exist, please choose a file [free_1.vcf, free_2.vcf, premium_1.vcf, premium_2.vcf, premium_3.vcf, test.vcf]'
+    })
 
 
 def UUID_does_not_exist():
-    return "This UUID does not exist"
+    return jsonify({
+        'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
+        'status': 'error',
+        'message': 'This UUID does not exist'
+    })
 
 
 @app.route('/annotations/', methods=['POST', 'GET'])
@@ -122,7 +158,14 @@ def annotations(id=None):
         os.system(copy_file)
 
         # spawn a subprocess
-        subprocess.Popen(['sh', '-c', 'cd ./anntools && python run.py ../jobs/{}/{}'.format(UUID, input_file)])
+        try:
+            subprocess.Popen(['sh', '-c', 'cd ./anntools && python run.py ../jobs/{}/{}'.format(UUID, input_file)])
+        except subprocess.CalledProcessError:
+            return jsonify({
+                'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
+                'status': 'error',
+                'message': 'Server could not process request, please try again later.'
+            })
 
         return jsonify({"code": 201,
                         "data": {
