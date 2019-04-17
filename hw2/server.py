@@ -64,7 +64,7 @@ def UUID_does_not_exist():
     })
 
 
-@app.route('/annotations/', methods=['POST', 'GET'])
+@app.route('/annotations', methods=['POST', 'GET'])
 @app.route('/annotations/<id>', methods=['POST', 'GET'])
 def annotations(id=None):
     # handle GET
@@ -139,7 +139,11 @@ def annotations(id=None):
     elif request.method == 'POST':
 
         # get the input
-        input_file = request.form['input_file']
+        if request.is_json:
+            data = request.get_json()
+            input_file = data['input_file']
+        if not request.is_json:
+            input_file = request.form['input_file']
 
         # check whether the input is valid or not
         exists = os.path.isfile('./anntools/data/{}'.format(input_file))
