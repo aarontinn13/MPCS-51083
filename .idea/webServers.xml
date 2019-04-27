@@ -2,8 +2,24 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="a5dd2b70-ebed-4e37-8040-665df5296ee7" name="mpcs" url="http://ec2-34-207-114-140.compute-1.amazonaws.com">
-        <fileTransfer host="ec2-34-207-114-140.compute-1.amazonaws.com" port="22" privateKey="$USER_HOME$/.ssh/atinn.pem" accessType="SFTP" keyPair="true">
+      <webServer id="b504548c-c3cf-4a81-be51-59bf3dcd53fc" name="hw3" url="http://ec2-54-196-205-197.compute-1.amazonaws.com">
+        <fileTransfer host="ec2-54-196-205-197.compute-1.amazonaws.com" port="22" privateKey="$USER_HOME$/.ssh/atinn.pem" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="8cc20100-02c5-4881-83d9-de6ed572711b" name="hw4-ann" url="http://ec2-54-147-31-146.compute-1.amazonaws.com">
+        <fileTransfer host="ec2-54-147-31-146.compute-1.amazonaws.com" port="22" privateKey="$USER_HOME$/.ssh/atinn.pem" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="80c74ebb-205f-4732-9c92-cf76b68082c7" name="hw4-web" url="http://ec2-54-227-184-81.compute-1.amazonaws.com">
+        <fileTransfer host="ec2-54-227-184-81.compute-1.amazonaws.com" port="22" privateKey="$USER_HOME$/.ssh/atinn.pem" accessType="SFTP" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
