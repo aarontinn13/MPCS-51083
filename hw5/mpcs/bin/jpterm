@@ -1,0 +1,6 @@
+#!/home/infinity/Desktop/mpcs51083/hw1/mpcs/bin/python
+import jpterm
+
+
+if __name__ == '__main__':
+    jpterm.main()

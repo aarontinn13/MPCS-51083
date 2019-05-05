@@ -92,7 +92,7 @@ def annotations():
 
     # spawn a subprocess
     try:
-        subprocess.Popen(['sh', '-c', 'cd ./anntools && python hw4_run.py ../jobs/{ID}/{filename} {ID} {filename} {path}'.format(ID=ID, filename=filename, path=path)])
+        subprocess.Popen(['sh', '-c', 'cd ./anntools && python hw5_run.py ../jobs/{ID}/{filename} {ID} {filename} {path}'.format(ID=ID, filename=filename, path=path)])
     except subprocess.CalledProcessError:
         return jsonify({
             'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
