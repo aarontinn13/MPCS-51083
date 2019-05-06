@@ -58,17 +58,23 @@ def annotations():
     filename = request.form['input_file_name']
     bucket = request.form['s3_inputs_bucket']
 
-    # create new UUID folder in ./jobs
-    create_ID_folder = 'mkdir ./jobs/{}'.format(ID)
-    os.system(create_ID_folder)
+    # create new UUID folder in ./jobs https://stackoverflow.com/questions/18973418/os-mkdirpath-returns-oserror-when-directory-does-not-exist
+    try:
+        create_ID_folder = 'mkdir ./jobs/{}'.format(ID)
+        os.system(create_ID_folder)
+    except OSError:
+        print('could not make directory.')
 
     # download the file https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-example-download-file.html
     s3_client = boto3.resource('s3', region_name='us-east-1')
     s3_client.meta.client.download_file(bucket, key, '{}'.format(filename))
 
     # move the file to temporary directory
-    move_file = 'mv ./{} ./jobs/{}'.format(filename, ID)
-    os.system(move_file)
+    if os.path.exists('./{}'.format(filename)):
+        move_file = 'mv ./{} ./jobs/{}'.format(filename, ID)
+        os.system(move_file)
+    else:
+        print('file does not exist')
 
     # start the dynamoDB table
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1')

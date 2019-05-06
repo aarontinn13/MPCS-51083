@@ -58,9 +58,6 @@ def annotate():
     key = 'atinn/{}/'.format(user)+str(ID)+'/${filename}'
     url = '{}/job'.format(request.url)
 
-    if '${filename}' == '':
-        file_does_not_exist()
-
     conditions = [{"acl": "private"},
                   ["starts-with", "$success_action_redirect", url],
                   ["starts-with", "$key", "atinn/"]]

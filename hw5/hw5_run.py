@@ -8,6 +8,7 @@ import time
 import driver
 import boto3
 import os
+import botocore
 
 """A rudimentary timer for coarse-grained profiling
 """
@@ -38,30 +39,41 @@ if __name__ == '__main__':
     path = sys.argv[4]
     prefix = filename.partition('.')[0]
 
-    # upload the annot.vcf
-    s3_client.upload_file('../jobs/{}/{}.annot.vcf'.format(ID, prefix), 'gas-results', '{}/{}.annot.vcf'.format(path, prefix))
+    try:
+      # upload the annot.vcf
+      s3_client.upload_file('../jobs/{}/{}.annot.vcf'.format(ID, prefix), 'gas-results', '{}/{}.annot.vcf'.format(path, prefix))
 
-    # upload the log file
-    s3_client.upload_file('../jobs/{}/{}.vcf.count.log'.format(ID, prefix), 'gas-results', '{}/{}.vcf.count.log'.format(path, prefix))
+      # upload the log file
+      s3_client.upload_file('../jobs/{}/{}.vcf.count.log'.format(ID, prefix), 'gas-results', '{}/{}.vcf.count.log'.format(path, prefix))
+
+    except boto3.exceptions.S3UploadFailedError:
+      print('The files did not upload properly.')
+
 
     # update the dynamoDB table status to COMPLETED https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.03.html
-    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
-    ann_table = dynamodb.Table('atinn_annotations')
-    ann_table.update_item(Key= {'job_id': ID},
-                          UpdateExpression="set job_status = :s, s3_results_bucket = :b, s3_key_result_file = :f, s3_key_log_file = :l, complete_time = :c",
-                          ExpressionAttributeValues={
-                                                    ':s': 'COMPLETED',
-                                                    ':b': 'gas-results',
-                                                    ':f': '{}/{}.annot.vcf'.format(path, prefix),
-                                                    ':l': '{}/{}.vcf.count.log'.format(path, prefix),
-                                                    ':c': int(time.time())
-                                                     },
-                          ReturnValues="UPDATED_NEW"
-                          )
+    try:
+      dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+      ann_table = dynamodb.Table('atinn_annotations')
+      ann_table.update_item(Key= {'job_id': ID},
+                            UpdateExpression="set job_status = :s, s3_results_bucket = :b, s3_key_result_file = :f, s3_key_log_file = :l, complete_time = :c",
+                            ExpressionAttributeValues={
+                                                      ':s': 'COMPLETED',
+                                                      ':b': 'gas-results',
+                                                      ':f': '{}/{}.annot.vcf'.format(path, prefix),
+                                                      ':l': '{}/{}.vcf.count.log'.format(path, prefix),
+                                                      ':c': int(time.time())
+                                                       },
+                            ReturnValues="UPDATED_NEW"
+                            )
+    except botocore.exceptions.ClientError:
+      print('error updating table.')
 
     # delete the job locally
-    delete_folder = 'rm -r ../jobs/{}'.format(ID)
-    os.system(delete_folder)
+    if os.path.exists('../jobs/{}'.format(ID)):
+      delete_folder = 'rm -r ../jobs/{}'.format(ID)
+      os.system(delete_folder)
+    else:
+      print('cannot delete file as it does not exist.')
 
   else:
     print("A valid .vcf file must be provided as input to this program.")
