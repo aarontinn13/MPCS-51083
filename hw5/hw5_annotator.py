@@ -110,7 +110,7 @@ def annotations():
 
     # spawn a subprocess
     try:
-        subprocess.Popen(['sh', '-c', 'cd ./anntools && python hw5_run.py ../jobs/{ID}/{filename} {ID} {filename} {path}'.format(ID=ID, filename=filename, path=path)])
+        subprocess.Popen(['sh', '-c', 'cd ./anntools && python hw6_run.py ../jobs/{ID}/{filename} {ID} {filename} {path}'.format(ID=ID, filename=filename, path=path)])
 
     except subprocess.CalledProcessError:
         return jsonify({
