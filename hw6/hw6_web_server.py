@@ -7,6 +7,7 @@ import datetime
 import botocore
 import time
 import json
+import logging
 
 app = Flask(__name__)
 
@@ -50,24 +51,28 @@ def annotate():
     ID = uuid.uuid4()
 
     # create client
-    s3 = boto3.client('s3', region_name='us-east-1', config=botocore.client.Config(signature_version='s3v4'))
+    try:
+        s3 = boto3.client('s3', region_name='us-east-1', config=botocore.client.Config(signature_version='s3v4'))
 
-    # define parameters
-    bucket = 'gas-inputs'
-    user = 'UserX'
-    key = 'atinn/{}/'.format(user)+str(ID)+'/${filename}'
-    url = '{}/job'.format(request.url)
+        # define parameters
+        bucket = 'gas-inputs'
+        user = 'UserX'
+        key = 'atinn/{}/'.format(user)+str(ID)+'/${filename}'
+        url = '{}/job'.format(request.url)
 
-    conditions = [{"acl": "private"},
-                  ["starts-with", "$success_action_redirect", url],
-                  ["starts-with", "$key", "atinn/"]]
-    expires = 300  # 5 minutes
+        conditions = [{"acl": "private"},
+                      ["starts-with", "$success_action_redirect", url],
+                      ["starts-with", "$key", "atinn/"]]
+        expires = 300  # 5 minutes
 
-    #input parameters
-    s3 = s3.generate_presigned_post(Bucket=bucket,
-                                    Key=key,
-                                    Conditions=conditions,
-                                    ExpiresIn=expires)
+        #input parameters
+        s3 = s3.generate_presigned_post(Bucket=bucket,
+                                        Key=key,
+                                        Conditions=conditions,
+                                        ExpiresIn=expires)
+
+    except botocore.exceptions.ClientError:
+        return 'an error has occured please try again'
 
     # retrieve relevant data
     policy = s3['fields']['policy']

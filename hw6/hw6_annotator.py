@@ -58,29 +58,7 @@ def annotations():
         response = ann_table.get_item(Key={'job_id': ID})
         status = response['Item']['job_status']
 
-        # handle if the job is already complete
-        if status == 'COMPLETED':
-            print({"code": 200,
-                    "data": {
-                        "job_id": ID,
-                        "input_file": filename,
-                            },
-                    "Comment": "Job is already complete!"
-                    })
-        try:
-            # update the dynamoDB table status to running https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.03.html
-            ann_table.update_item( Key= {'job_id': ID},
-                                   UpdateExpression="set job_status = :s",
-                                   ExpressionAttributeValues={':s': 'RUNNING'},
-                                   ReturnValues="UPDATED_NEW"
-                                 )
-        # cannot find key
-        except botocore.exceptions.ClientError:
-            print({
-                    'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
-                    'status': 'error',
-                    'message': 'Cannot find that key'
-                    })
+
 
         # spawn a subprocess
         try:
@@ -92,6 +70,33 @@ def annotations():
                 'status': 'error',
                 'message': 'Server could not process request, please try again later.'
             })
+
+        try:
+            # handle if the job is already complete
+            if status == 'COMPLETED':
+                print({"code": 200,
+                       "data": {
+                           "job_id": ID,
+                           "input_file": filename,
+                       },
+                       "Comment": "Job is already complete!"
+                       })
+            else:
+                # update the dynamoDB table status to running https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.03.html
+                ann_table.update_item( Key= {'job_id': ID},
+                                       UpdateExpression="set job_status = :s",
+                                       ExpressionAttributeValues={':s': 'RUNNING'},
+                                       ReturnValues="UPDATED_NEW"
+                                     )
+        # cannot find key
+        except botocore.exceptions.ClientError:
+            print({
+                    'code': 'HTTP_500_INTERNAL_SERVER_ERROR',
+                    'status': 'error',
+                    'message': 'Cannot find that key'
+                    })
+
+
 
         # Delete the message from the queue, if job was successfully submitted
         # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs-example-sending-receiving-msgs.html
