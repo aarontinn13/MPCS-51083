@@ -73,23 +73,14 @@ def annotations():
 
         try:
             # handle if the job is already complete
-            if status == 'COMPLETED':
-                print({"code": 200,
-                       "data": {
-                           "job_id": ID,
-                           "input_file": filename,
-                       },
-                       "Comment": "Job is already complete!"
-                       })
-            else:
-                # update the dynamoDB table status to running https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.03.html
-                ann_table.update_item( Key= {'job_id': ID},
-                                       UpdateExpression="set job_status = :s",
-                                       ConditionExpression="job_status = :c",
-                                       ExpressionAttributeValues={':s': 'RUNNING',
-                                                                  ':c': 'PENDING'},
-                                       ReturnValues="UPDATED_NEW"
-                                     )
+            # update the dynamoDB table status to running https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.03.html
+            ann_table.update_item( Key= {'job_id': ID},
+                                   UpdateExpression="set job_status = :s",
+                                   ConditionExpression="job_status = :c",
+                                   ExpressionAttributeValues={':s': 'RUNNING',
+                                                              ':c': 'PENDING'},
+                                   ReturnValues="UPDATED_NEW"
+                                 )
         # cannot find key
         except botocore.exceptions.ClientError:
             print({
