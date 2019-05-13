@@ -85,7 +85,9 @@ def annotations():
                 # update the dynamoDB table status to running https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.03.html
                 ann_table.update_item( Key= {'job_id': ID},
                                        UpdateExpression="set job_status = :s",
-                                       ExpressionAttributeValues={':s': 'RUNNING'},
+                                       ConditionExpression="job_status = :c",
+                                       ExpressionAttributeValues={':s': 'RUNNING',
+                                                                  ':c': 'PENDING'},
                                        ReturnValues="UPDATED_NEW"
                                      )
         # cannot find key
